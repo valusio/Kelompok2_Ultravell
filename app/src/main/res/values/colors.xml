@@ -2,4 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="onyx">#3F3F3F</color>
+    <color name="periwinkle">#CCCCFF</color>
+    <color name="celestial_blue">#4498D6</color>
+    <color name="maya_blue">#8FC9FF</color>
 </resources>
