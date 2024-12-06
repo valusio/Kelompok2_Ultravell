@@ -1,2 +1,6 @@
-package com.example.ultravel;public class RegisterActivity {
+package com.example.ultravel;
+
+import android.app.Activity;
+
+public class RegisterActivity extends Activity {
 }

@@ -13,4 +13,9 @@
     <color name="lightGray">#efefef</color>
     <color name="blue1">#8fc9ff</color>
     <color name="blue2">#4498D6</color>
+    <color name="onyx">#3F3F3F</color>
+    <color name="periwinkle">#CCCCFF</color>
+    <color name="celestial_blue">#4498D6</color>
+    <color name="maya_blue">#8FC9FF</color>
+    <color name="peach">#FFC58F</color> <!-- Complement of maya_blue -->
 </resources>
