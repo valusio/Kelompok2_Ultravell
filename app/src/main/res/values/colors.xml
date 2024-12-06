@@ -2,9 +2,15 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="onyx">#3F3F3F</color>
-    <color name="periwinkle">#CCCCFF</color>
-    <color name="celestial_blue">#4498D6</color>
-    <color name="maya_blue">#8FC9FF</color>
-    <color name="peach">#FFC58F</color> <!-- Complement of maya_blue -->
+    <color name="orange">#ff5f1f</color>
+    <color name="orangeMid">#fecdc0</color>
+    <color name="orangeLight">#fecdc0</color>
+    <color name="lightOrange">#feecec</color>
+    <color name="lightGrey">#eeeced</color>
+    <color name="grey">#d7d6d7</color>
+    <color name="blue">#3F95EC</color>
+    <color name="darkBlue">#253f66</color>
+    <color name="lightGray">#efefef</color>
+    <color name="blue1">#8fc9ff</color>
+    <color name="blue2">#4498D6</color>
 </resources>
