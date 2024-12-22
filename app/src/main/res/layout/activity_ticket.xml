@@ -96,8 +96,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="155dp"
                         android:layout_margin="16dp"
-                        android:scaleType="centerCrop"/>
-                        <!-- app:srcCompat="@drawable/pagaruyung" /> -->
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/pagaruyung" />
 
                     <TextView
                         android:id="@+id/titleTxt"
@@ -221,7 +221,7 @@
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            tools:srcCompat="@tools:sample/avatars" />
+                            tools:srcCompat="@drawable/avatar" />
 
                         <TextView
                             android:id="@+id/textView27"
@@ -250,8 +250,8 @@
                             android:layout_marginEnd="8dp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"/>
-                            <!-- app:srcCompat="@drawable/call" /> -->
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/call" />
 
                         <ImageView
                             android:id="@+id/messageBtn"
@@ -260,8 +260,8 @@
                             android:layout_marginEnd="8dp"
                             app:layout_constraintBottom_toBottomOf="@+id/callBtn"
                             app:layout_constraintEnd_toStartOf="@+id/callBtn"
-                            app:layout_constraintTop_toTopOf="@+id/callBtn"/>
-                            <!-- app:srcCompat="@drawable/message" /> -->
+                            app:layout_constraintTop_toTopOf="@+id/callBtn"
+                            app:srcCompat="@drawable/message" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <ImageView
