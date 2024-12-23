@@ -90,15 +90,28 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginEnd="16dp"
-                    android:src="@drawable/facebook"
-                    android:contentDescription="Facebook Logo" />
+                    android:contentDescription="Facebook Logo"
+                    android:src="@drawable/facebook" />
 
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/google"
-                    android:contentDescription="Google Logo" />
+                    android:contentDescription="Google Logo"
+                    android:src="@drawable/google" />
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/errLog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Selamat! Tidak ada eror Volley" />
+
+            <TextView
+                android:id="@+id/log"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
