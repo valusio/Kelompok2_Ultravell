@@ -13,4 +13,13 @@
     <color name="lightGray">#efefef</color>
     <color name="blue1">#8fc9ff</color>
     <color name="blue2">#4498D6</color>
+    <color name="onyx">#3F3F3F</color>
+    <color name="periwinkle">#CCCCFF</color>
+    <color name="celestial_blue">#4498D6</color>
+    <color name="maya_blue">#8FC9FF</color>
+    <color name="peach">#FFC58F</color> <!-- Complement of maya_blue -->
+    <color name="seasalt">#F7F7F7</color>
+    <color name="platinum">#E2E4E5</color>
+    <color name="platinum2">#D9D9D9</color>
+    <color name="caramel">#D68043</color> <!-- Complement of celestial_blue -->
 </resources>

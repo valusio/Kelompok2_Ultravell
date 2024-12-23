@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="24dp">
 
         <LinearLayout
             android:id="@+id/profil_layout"
@@ -54,8 +54,91 @@
                 android:layout_height="32dp"
                 android:layout_gravity="end"
                 android:background="?attr/selectableItemBackground"
-                app:srcCompat="@mipmap/ic_back_arrow" />
+                app:srcCompat="@drawable/ic_back_arrow" />
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:gravity="center_vertical"
+            android:text="Isikan kolom dibawah untuk Pemesanan"
+            android:textColor="@color/onyx" />
+
+        <EditText
+            android:id="@+id/editTextText"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/custom_edit_text_rounded"
+            android:ems="10"
+            android:hint="Nama"
+            android:inputType="text"
+            android:paddingStart="16dp" />
+
+        <EditText
+            android:id="@+id/editTextPhone"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/custom_edit_text_rounded"
+            android:ems="10"
+            android:hint="Nomor HP"
+            android:inputType="phone"
+            android:paddingStart="16dp" />
+
+        <EditText
+            android:id="@+id/editTextNumber"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/custom_edit_text_rounded"
+            android:ems="10"
+            android:hint="Jumlah Kursi"
+            android:inputType="number"
+            android:paddingStart="16dp" />
+
+        <EditText
+            android:id="@+id/editTextText2"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/custom_edit_text_rounded"
+            android:ems="10"
+            android:hint="Titik Jemput"
+            android:inputType="text"
+            android:paddingStart="16dp" />
+
+        <EditText
+            android:id="@+id/editTextText3"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/custom_edit_text_rounded"
+            android:ems="10"
+            android:hint="Pilihan Armada"
+            android:inputType="text"
+            android:paddingStart="16dp" />
+
+        <EditText
+            android:id="@+id/editTextText4"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/custom_edit_text_rounded"
+            android:ems="10"
+            android:hint="Titik Antar"
+            android:inputType="text"
+            android:paddingStart="16dp" />
+
+        <Button
+            android:id="@+id/button_pesan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:backgroundTint="@color/celestial_blue"
+            android:text="Pesan Sekarang !"
+            android:textColor="@color/white" />
 
     </LinearLayout>
 
