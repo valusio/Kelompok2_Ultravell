@@ -100,18 +100,6 @@
                     android:src="@drawable/google" />
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/errLog"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Selamat! Tidak ada eror Volley" />
-
-            <TextView
-                android:id="@+id/log"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
-
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
