@@ -78,7 +78,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
         LatLng location = new LatLng(0.9154, 100.4611);
-        googleMap.addMarker(new MarkerOptions().position(location).title("FTI Unand"));
+        googleMap.addMarker(new MarkerOptions().position(location).title("Compenhagen"));
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location,12));
     }
 }
