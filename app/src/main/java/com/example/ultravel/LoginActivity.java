@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,7 +21,7 @@ import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText emailEdt, passEdt;
-
+    private TextView regEdt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +29,7 @@ public class LoginActivity extends AppCompatActivity {
 
         emailEdt = findViewById(R.id.emailEdt);
         passEdt = findViewById(R.id.passEdt);
+        regEdt = findViewById(R.id.regEdt);
 
         findViewById(R.id.loginBtn).setOnClickListener(v -> {
             String email = emailEdt.getText().toString().trim();
@@ -41,6 +43,10 @@ public class LoginActivity extends AppCompatActivity {
                 loginUser(email, password);
             }
         });
+        regEdt.setOnClickListener(view -> {
+            Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+            startActivity(intent);
+        });
     }
 
     private void loginUser(String email, String password) {
@@ -52,14 +58,14 @@ public class LoginActivity extends AppCompatActivity {
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     LoginResponse loginResponse = response.body();
-                    if ("success".equalsIgnoreCase(loginResponse.getStatus())) {
+                    if ("true".equalsIgnoreCase(loginResponse.getStatus())) {
                         Toast.makeText(LoginActivity.this, "Login berhasil", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                        intent.putExtra("username", loginResponse.getUser().getUsername());
+//                        intent.putExtra("username", loginResponse.getUser().getUsername());
                         startActivity(intent);
                         finish();
                     } else {
-                        Toast.makeText(LoginActivity.this, "Login gagal: " + loginResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Login gagal111: " + loginResponse.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     Toast.makeText(LoginActivity.this, "Login gagal: " + response.message(), Toast.LENGTH_SHORT).show();
