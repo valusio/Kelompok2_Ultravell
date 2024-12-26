@@ -1,74 +1,75 @@
 package com.example.ultravel;
 
-import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.View;
-import android.widget.Button;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
+import com.example.ultravel.api.ApiService;
+import com.example.ultravel.api.LoginRequest;
+import com.example.ultravel.api.LoginResponse;
+import com.example.ultravel.api.RetrofitClient;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
+    private EditText emailEdt, passEdt;
 
-    EditText emailEdt, passEdt ;
-    AppCompatButton loginBtn ;
-
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+
+        emailEdt = findViewById(R.id.emailEdt);
+        passEdt = findViewById(R.id.passEdt);
+
+        findViewById(R.id.loginBtn).setOnClickListener(v -> {
+            String email = emailEdt.getText().toString().trim();
+            String password = passEdt.getText().toString().trim();
+
+            if (TextUtils.isEmpty(email)) {
+                Toast.makeText(this, "Email tidak boleh kosong", Toast.LENGTH_SHORT).show();
+            } else if (TextUtils.isEmpty(password)) {
+                Toast.makeText(this, "Password tidak boleh kosong", Toast.LENGTH_SHORT).show();
+            } else {
+                loginUser(email, password);
+            }
         });
-// kenalkan widget didalam method create
-        emailEdt =(EditText) findViewById(R.id.emailEdt);
-        passEdt =(EditText) findViewById(R.id.passEdt);
-        loginBtn = findViewById(R.id.loginBtn);
+    }
 
-        //event handle ketika tombol login diklik
-        loginBtn.setOnClickListener(new View.OnClickListener() {
+    private void loginUser(String email, String password) {
+        ApiService apiService = RetrofitClient.getRetrofitInstance().create(ApiService.class);
+        LoginRequest loginRequest = new LoginRequest(email, password);
+
+        apiService.login(loginRequest).enqueue(new Callback<LoginResponse>() {
             @Override
-            public void onClick(View view) {
-                if (TextUtils.isEmpty(emailEdt.getText().toString())) {
-                    Toast.makeText(LoginActivity.this, "username ngk boleh kosong",
-                            Toast.LENGTH_SHORT).show();
-
-                } else if (TextUtils.isEmpty(passEdt.getText().toString())) {
-                    Toast.makeText(LoginActivity.this, "pasword ngk boleh kosong",
-                            Toast.LENGTH_SHORT).show();
+            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    LoginResponse loginResponse = response.body();
+                    if ("success".equalsIgnoreCase(loginResponse.getStatus())) {
+                        Toast.makeText(LoginActivity.this, "Login berhasil", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        intent.putExtra("username", loginResponse.getUser().getUsername());
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        Toast.makeText(LoginActivity.this, "Login gagal: " + loginResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
                 } else {
-                    Toast.makeText(LoginActivity.this, "hayolohh",
-                            Toast.LENGTH_SHORT).show();
-
-                    //intent ketika di klik login akan pindah ke halaman main activity
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-
-                    //kirim data username ke activity main menggunakan intent
-                    intent.putExtra("username", emailEdt.getText().toString());
-                    startActivity(intent);
-
-                    //setelah tombol login diklik maka activity login kita matikan
-                    finish();
+                    Toast.makeText(LoginActivity.this, "Login gagal: " + response.message(), Toast.LENGTH_SHORT).show();
                 }
+            }
+
+            @Override
+            public void onFailure(Call<LoginResponse> call, Throwable t) {
+                Toast.makeText(LoginActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Log.e("LoginError", t.getMessage(), t);
             }
         });
     }
