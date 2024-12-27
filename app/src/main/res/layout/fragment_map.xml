@@ -50,13 +50,19 @@
                 android:textColor="#FFFFFF"
                 android:textSize="16sp" />
         </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
 
-        <FrameLayout
+        <com.google.android.gms.maps.MapView
             android:id="@+id/id_map"
             android:layout_width="match_parent"
             android:layout_height="500dp"
             android:layout_marginTop="8dp"
-            android:background="#E0E0E0" />
+            android:contentDescription="Ini map ya ges" />
+
+    </RelativeLayout>
+
 
         <RelativeLayout
             android:id="@+id/footer_layout"
