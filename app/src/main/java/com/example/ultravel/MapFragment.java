@@ -2,16 +2,19 @@ package com.example.ultravel;
 
 import static com.example.ultravel.R.id.map;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
@@ -64,8 +67,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-        SupportMapFragment mapFragment = (SupportMapFragment)getParentFragmentManager().findFragmentById(map);
-        mapFragment.getMapAsync(this);
+//        SupportMapFragment mapFragment = (SupportMapFragment)getParentFragmentManager().findFragmentById(map);
+//        mapFragment.getMapAsync(this);
     }
 
     @Override
@@ -80,5 +83,10 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         LatLng location = new LatLng(0.9154, 100.4611);
         googleMap.addMarker(new MarkerOptions().position(location).title("Compenhagen"));
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location,12));
+    }
+
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        Intent intent = new Intent(getActivity(), MapActivity.class);
+        startActivity(intent);
     }
 }
