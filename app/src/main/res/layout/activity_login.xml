@@ -100,6 +100,15 @@
                     android:src="@drawable/google" />
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/regEdt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Register Now!"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:textStyle="bold"/>
+
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
